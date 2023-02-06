@@ -8,6 +8,7 @@ use GDO\Core\GDT_Path;
 use GDO\Util\Filewalker;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_EnumNoI18n;
+use GDO\CLI\Method\Collect;
 
 /**
  * Convert all files in a folder to mp3.
@@ -23,6 +24,7 @@ final class AllToMP3 extends MethodCLI
 	{
 		$form->addFields(
 			GDT_Checkbox::make('recursive')->notNull()->initial('0'),
+			GDT_Checkbox::make('collected')->notNull()->initial('0'),
 			GDT_EnumNoI18n::make('bitrate')->enumValues('128kb/s', '192kb/s', '256kb/s', 'Dynamic kb/s')->initial('192kb/s'),
 			GDT_Path::make('path')->existingDir()->notNull(),
 		);
@@ -39,6 +41,16 @@ final class AllToMP3 extends MethodCLI
 		$path = $this->getPath();
 		$ptrn = ToMP3::AUDIO_PATTERN;
 		$cbck = [$this, 'callbackConvert'];
+		
+		if ($this->gdoParameterVar('collected'))
+		{
+			Collect::make()->executeWithInputs([
+				'path' => $path,
+				'pattern' => $ptrn,
+				'submit' => '1',
+			], false);
+		}
+		
 		Filewalker::traverse($path, $ptrn, $cbck, null, 0);
 	}
 	
