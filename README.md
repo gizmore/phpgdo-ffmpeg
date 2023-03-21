@@ -5,7 +5,6 @@ FFmpeg wrapper and utlities for
 
 Convert all music to mp3.
 
-
 ## phpgdo-ffmpeg: Dependencies
 
 This module depends on
@@ -13,13 +12,11 @@ This module depends on
 and
 [PHP-FFMpeg](https://github.com/PHP-FFMpeg/PHP-FFMpeg)
 
-
 ## phpgdo-ffmpeg: GDO Dependencies
 
 This module depends on the GDOv7
 [CLI](https://github.com/gizmore/phpgdo/tree/main/GDO/CLI)
 module.
-
 
 ## phpgdo-ffmpeg: License
 

@@ -1,5 +1,5 @@
 {
-    "require": {
-        "php-ffmpeg/php-ffmpeg": "^1.0"
-    }
+  "require": {
+    "php-ffmpeg/php-ffmpeg": "^1.0"
+  }
 }

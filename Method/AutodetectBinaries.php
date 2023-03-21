@@ -7,37 +7,38 @@ use GDO\FFMpeg\Module_FFMpeg;
 use GDO\UI\TextStyle;
 
 /**
- * 
+ *
  * @author gizmore
  *
  */
 final class AutodetectBinaries extends Method
 {
+
 	public function execute()
 	{
 		$this->detectBinariesIfNeeded();
 	}
-	
-	public function detectBinariesIfNeeded() : void
+
+	public function detectBinariesIfNeeded(): void
 	{
 		$mod = Module_FFMpeg::instance();
 		$path1 = $mod->cfgFFMpegPath();
 		$path2 = $mod->cfgFFProbePath();
-		if ( (!$path1) || (!$path2) )
+		if ((!$path1) || (!$path2))
 		{
 			$this->detectBinaries();
 		}
 	}
-	
-	public function detectBinaries() : void
+
+	public function detectBinaries(): void
 	{
 		$this->detectFFMpeg();
 		$this->detectFFProbe();
 	}
-	
-	public function detectFFMpeg() : void
+
+	public function detectFFMpeg(): void
 	{
-		if ($path = Process::commandPath("ffmpeg"))
+		if ($path = Process::commandPath('ffmpeg'))
 		{
 			$mod = Module_FFMpeg::instance();
 			$mod->saveConfigVar('ffmpeg_path', $path);
@@ -48,10 +49,10 @@ final class AutodetectBinaries extends Method
 			$this->error('err_file_not_found', ['ffmpeg']);
 		}
 	}
-	
-	public function detectFFProbe() : void
+
+	public function detectFFProbe(): void
 	{
-		if ($path = Process::commandPath("ffprobe"))
+		if ($path = Process::commandPath('ffprobe'))
 		{
 			$mod = Module_FFMpeg::instance();
 			$mod->saveConfigVar('ffprobe_path', $path);
@@ -62,5 +63,5 @@ final class AutodetectBinaries extends Method
 			$this->error('err_file_not_found', ['ffprobe']);
 		}
 	}
-	
+
 }
