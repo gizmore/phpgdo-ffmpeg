@@ -3,6 +3,7 @@ namespace GDO\FFMpeg\Method;
 
 use FFMpeg\Format\Audio\Mp3;
 use GDO\CLI\MethodCLI;
+use GDO\Core\GDT;
 use GDO\Core\GDT_EnumNoI18n;
 use GDO\Core\GDT_Path;
 use GDO\FFMpeg\Module_FFMpeg;
@@ -35,7 +36,7 @@ final class ToMP3 extends MethodCLI
 		$form->actions()->addField(GDT_Submit::make());
 	}
 
-	public function formValidated(GDT_Form $form): void
+	public function formValidated(GDT_Form $form): GDT
 	{
 		$mod = Module_FFMpeg::instance();
 		$path = $this->getPath();

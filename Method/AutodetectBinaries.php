@@ -2,21 +2,22 @@
 namespace GDO\FFMpeg\Method;
 
 use GDO\CLI\Process;
+use GDO\Core\GDT;
+use GDO\Core\GDT_Response;
 use GDO\Core\Method;
 use GDO\FFMpeg\Module_FFMpeg;
 use GDO\UI\TextStyle;
 
 /**
- *
- * @author gizmore
- *
+ * Detect ffmpeg binaries.
  */
 final class AutodetectBinaries extends Method
 {
 
-	public function execute()
+	public function execute(): GDT
 	{
 		$this->detectBinariesIfNeeded();
+		return GDT_Response::make();
 	}
 
 	public function detectBinariesIfNeeded(): void

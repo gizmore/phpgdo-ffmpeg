@@ -3,6 +3,7 @@ namespace GDO\FFMpeg\Method;
 
 use GDO\CLI\Method\Collect;
 use GDO\CLI\MethodCLI;
+use GDO\Core\GDT;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_EnumNoI18n;
 use GDO\Core\GDT_Path;
@@ -32,7 +33,7 @@ final class AllToMP3 extends MethodCLI
 		$form->actions()->addField(GDT_Submit::make());
 	}
 
-	public function formValidated(GDT_Form $form): void
+	public function formValidated(GDT_Form $form): GDT
 	{
 		$path = $this->getPath();
 		$ptrn = ToMP3::AUDIO_PATTERN;
