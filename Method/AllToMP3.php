@@ -7,6 +7,7 @@ use GDO\Core\GDT;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_EnumNoI18n;
 use GDO\Core\GDT_Path;
+use GDO\Core\GDT_Response;
 use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
 use GDO\Util\Filewalker;
@@ -49,6 +50,8 @@ final class AllToMP3 extends MethodCLI
 		}
 
 		Filewalker::traverse($path, $ptrn, $cbck, null, 0);
+
+		return GDT_Response::make();
 	}
 
 	public function getPath(): string

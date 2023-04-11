@@ -6,6 +6,7 @@ use GDO\CLI\MethodCLI;
 use GDO\Core\GDT;
 use GDO\Core\GDT_EnumNoI18n;
 use GDO\Core\GDT_Path;
+use GDO\Core\GDT_Response;
 use GDO\FFMpeg\Module_FFMpeg;
 use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
@@ -47,6 +48,7 @@ final class ToMP3 extends MethodCLI
 		$format->setAudioKiloBitrate($this->getBitrate());
 		$audio->save($format, $out);
 		$this->message('msg_ffmpeg_to_mp3', [html(basename($out))]);
+		return GDT_Response::make();
 	}
 
 	public function getPath(): string
