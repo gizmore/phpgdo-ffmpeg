@@ -43,7 +43,6 @@ final class AutodetectBinaries extends Method
 		{
 			$mod = Module_FFMpeg::instance();
 			$mod->saveConfigVar('ffmpeg_path', $path);
-			$this->message('msg_binary_detected', [TextStyle::bold('ffmpeg')]);
 		}
 		else
 		{

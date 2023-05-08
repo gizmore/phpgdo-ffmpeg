@@ -28,7 +28,7 @@ final class ToMP3 extends MethodCLI
 		return t('md_ffmpeg_alltomp3');
 	}
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
 			GDT_EnumNoI18n::make('bitrate')->enumValues('128kb/s', '192kb/s', '256kb/s', 'Dynamic kb/s')->initial('192kb/s'),
