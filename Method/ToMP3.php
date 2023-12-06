@@ -14,7 +14,7 @@ use GDO\Form\GDT_Submit;
 final class ToMP3 extends MethodCLI
 {
 
-	public const AUDIO_PATTERN = '/\\.(?:m4a|opus)$/iD';
+	public const AUDIO_PATTERN = '/\\.(?:m4a|opus|mp4)$/iD';
 
 	public function isTrivial(): bool { return false; }
 
